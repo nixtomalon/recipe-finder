@@ -44,12 +44,11 @@ class _IngredientScreenState extends State<IngredientScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          //margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+          padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 14.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(top: 20.0, left: 12, right: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -57,11 +56,11 @@ class _IngredientScreenState extends State<IngredientScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'INGREDIENTBLE',
+                          "MY INGREDIENT'S",
                           style: TextStyle(
-                            fontFamily: 'Hammersmith One',
-                            //fontWeight: FontWeight.bold,
-                            fontSize: 28.0,
+                            fontFamily: 'Poppins-ExtraBold',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24.0,
                             color: kSecondary,
                           ),
                         ),
@@ -76,7 +75,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                       ],
                     ),
                     Material(
-                      elevation: 8.0,
+                      elevation: 2.0,
                       color: kSecondary,
                       borderRadius: BorderRadius.circular(50.0),
                       child: Container(
@@ -97,10 +96,6 @@ class _IngredientScreenState extends State<IngredientScreen> {
                               context: context,
                               isScrollControlled: true,
                               builder: (context) => SingleChildScrollView(
-                                padding: EdgeInsets.only(
-                                    bottom: MediaQuery.of(context)
-                                        .viewInsets
-                                        .bottom),
                                 child: AddIngredientsScreen(),
                               ),
                             );
@@ -111,81 +106,97 @@ class _IngredientScreenState extends State<IngredientScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(
+                height: 22.0,
+                child: Divider(
+                  color: Colors.grey[300],
+                  thickness: 2.0,
+                ),
+              ),
               Expanded(
                 child: Consumer<IngredientData>(
                   builder: (context, ingredientData, child) {
-                    if (ingredientData.ingredientCount <= 0) {
+                    if (ingredientData.ingredientCount < 1) {
                       return Center(
                         child: Image(
                           height: 180.0,
-                          image: AssetImage('images/emptybasket.png'),
+                          image: AssetImage('assets/images/emptybasket.png'),
                         ),
                       );
                     } else {
                       return ListView.builder(
+                        padding: EdgeInsets.only(top: 6.0, bottom: 10.0),
                         itemCount: ingredientData.ingredientCount,
                         itemBuilder: (context, index) {
                           return Container(
-                            margin: EdgeInsets.only(left: 12.0,right: 12.0, bottom: 6),
-                            //color: Colors.blue,
-                            child: Material(
-                              elevation: 5.0,
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5.0),
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Row(children: <Widget>[
-                                      Container(
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 10.0, vertical: 8.0),
-                                        height: 65.0,
-                                        width: 85.0,
-                                        child: FadeInImage.assetNetwork(
-                                          placeholder: 'images/loading.gif',
-                                          image: ingredientData
-                                              .ingredients[index].image,
+                            padding: EdgeInsets.only(bottom: 12.0),
+                            child: Container(
+                              padding: EdgeInsets.all(12.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(6.0),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    spreadRadius: 4.0,
+                                    blurRadius: 6,
+                                    offset: Offset(0, 2),
+                                  )
+                                ],
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(children: <Widget>[
+                                    Container(
+                                      height: 72.0,
+                                      width: 85.0,
+                                      child: FadeInImage.assetNetwork(
+                                        placeholder: 'images/loading.gif',
+                                        image: ingredientData
+                                            .ingredients[index].image,
+                                      ),
+                                    ),
+                                    SizedBox(width: 18.0),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          2.4,
+                                      child: Text(
+                                        ingredientData.ingredients[index].name
+                                            .toUpperCase(),
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: kSecondary,
                                         ),
                                       ),
-                                      SizedBox(width: 10.0),
-                                      Container(
-                                        width: 150.0,
-                                        child: Text(
-                                          ingredientData
-                                              .ingredients[index].name
-                                              .toUpperCase(),
-                                          style: TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Nunito',
-                                          ),
-                                        ),
-                                      ),
-                                    ]),
-                                    IconButton(
+                                    ),
+                                  ]),
+                                  SizedBox(
+                                    height: 22.0,
+                                    width: 22.0,
+                                    child: IconButton(
                                       icon: FaIcon(
                                         FontAwesomeIcons.trashAlt,
                                         color: Colors.red,
                                         size: 18.0,
                                       ),
                                       onPressed: () {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content: Text(
+                                                    '${ingredientData.ingredients[index].name} removed')));
                                         Provider.of<IngredientData>(context,
                                                 listen: false)
                                             .removeIngredient(ingredientData
                                                 .ingredients[index].name);
-                                        print(Provider.of<IngredientData>(
-                                                context,
-                                                listen: false)
-                                            .ingredientCount);
                                       },
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                           );
@@ -195,53 +206,48 @@ class _IngredientScreenState extends State<IngredientScreen> {
                   },
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
-                child: Material(
-                  elevation: 5.0,
-                  color: kSecondary,
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      if (Provider.of<IngredientData>(context, listen: false)
-                              .ingredientCount <=
-                          0) {
-                        showAlertDialog(context);
-                      } else {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return RecipeScreen();
-                        }));
-                      }
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+              GestureDetector(
+                onTap: () {
+                  if (Provider.of<IngredientData>(context, listen: false)
+                          .ingredientCount <=
+                      0) {
+                    showAlertDialog(context);
+                  } else {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return RecipeScreen();
+                    }));
+                  }
+                },
+                child: Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: Colors.white,
+                      border: Border.all(
                         color: kSecondary,
+                        width: 3,
+                      )),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'GET RECIPES',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: kSecondary,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 18.0, vertical: 8.0),
-                            child: Text(
-                              'Get recipes',
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Nunito'),
-                            ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(Icons.arrow_forward,
-                                  color: Colors.white)),
-                        ],
-                      ),
-                    ),
+                      Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: kSecondary,
+                          )),
+                    ],
                   ),
                 ),
               ),
