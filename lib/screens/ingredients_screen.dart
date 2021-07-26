@@ -1,6 +1,6 @@
-import 'package:RecipeFinder/screens/add_ingredients.dart';
 import 'package:RecipeFinder/constants.dart';
 import 'package:RecipeFinder/screens/recipes_screen.dart';
+import 'package:RecipeFinder/screens/search_ingredients.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:RecipeFinder/models/ingredientData.dart';
@@ -44,11 +44,12 @@ class _IngredientScreenState extends State<IngredientScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 14.0),
+          padding: EdgeInsets.symmetric(vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -92,13 +93,10 @@ class _IngredientScreenState extends State<IngredientScreen> {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) => SingleChildScrollView(
-                                child: AddIngredientsScreen(),
-                              ),
-                            );
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return SearchIngredients();
+                            }));
                           },
                         ),
                       ),
@@ -106,11 +104,14 @@ class _IngredientScreenState extends State<IngredientScreen> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 22.0,
-                child: Divider(
-                  color: Colors.grey[300],
-                  thickness: 2.0,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  height: 22.0,
+                  child: Divider(
+                    color: Colors.grey[300],
+                    thickness: 2.0,
+                  ),
                 ),
               ),
               Expanded(
@@ -125,22 +126,23 @@ class _IngredientScreenState extends State<IngredientScreen> {
                       );
                     } else {
                       return ListView.builder(
-                        padding: EdgeInsets.only(top: 6.0, bottom: 10.0),
+                        padding: EdgeInsets.all(16.0),
                         itemCount: ingredientData.ingredientCount,
                         itemBuilder: (context, index) {
-                          return Container(
-                            padding: EdgeInsets.only(bottom: 12.0),
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 16),
                             child: Container(
                               padding: EdgeInsets.all(12.0),
+                              // margin: EdgeInsets.only(bottom: 12),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(6.0),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.grey.withOpacity(0.2),
-                                    spreadRadius: 4.0,
-                                    blurRadius: 6,
-                                    offset: Offset(0, 2),
+                                    spreadRadius: 4,
+                                    blurRadius: 4,
+                                    //offset: Offset(0, 2),
                                   )
                                 ],
                               ),
@@ -154,7 +156,8 @@ class _IngredientScreenState extends State<IngredientScreen> {
                                       height: 72.0,
                                       width: 85.0,
                                       child: FadeInImage.assetNetwork(
-                                        placeholder: 'images/loading.gif',
+                                        placeholder:
+                                            'assets/images/loading.gif',
                                         image: ingredientData
                                             .ingredients[index].image,
                                       ),
@@ -220,6 +223,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                   }
                 },
                 child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16),
                   padding:
                       EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
                   width: MediaQuery.of(context).size.width,

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:RecipeFinder/constants.dart';
-import 'package:RecipeFinder/screens/recipesDetails_screen.dart';
+import 'package:RecipeFinder/models/recipe.dart';
+import 'package:RecipeFinder/screens/recipe_details_screen.dart';
 import 'package:RecipeFinder/services/apiRequest.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class RecipeScreen extends StatefulWidget {
 
 class _RecipeScreenState extends State<RecipeScreen> {
   RequestData data = RequestData();
-  var recipes;
+  var _recipes = <Recipe>[];
 
   StreamController streamController;
   Stream stream;
@@ -33,9 +34,9 @@ class _RecipeScreenState extends State<RecipeScreen> {
 
   void updateUI() async {
     streamController.add('Waiting');
-    recipes = await data.getRecipes(
-    Provider.of<IngredientData>(context, listen: false).ingredientName);
-    streamController.add(recipes);
+    _recipes = await data.getRecipes(
+        Provider.of<IngredientData>(context, listen: false).ingredientName);
+    streamController.add(_recipes);
   }
 
   @override
@@ -43,9 +44,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
     return Scaffold(
       backgroundColor: kPrimary,
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: kSecondary, //change your color here
-        ),
+        iconTheme: IconThemeData(color: kSecondary),
         centerTitle: true,
         title: Text(
           'AVAILABLE RECIPES',
@@ -82,7 +81,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                         EdgeInsets.only(bottom: 10.0, left: 5.0, right: 5.0),
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(snapshot.data[index]['image']),
+                        image: NetworkImage(snapshot.data[index].image),
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.circular(10.0),
@@ -107,7 +106,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                             child: Container(
                               width: 250.0,
                               child: Text(
-                                snapshot.data[index]['title'],
+                                snapshot.data[index].title,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -124,9 +123,15 @@ class _RecipeScreenState extends State<RecipeScreen> {
                               size: 18.0,
                             ),
                             onPressed: () {
-                              Provider.of<IngredientData>(context, listen: false).provideRecipeData(snapshot.data[index]);
+                              Provider.of<IngredientData>(context,
+                                      listen: false)
+                                  .provideRecipeData(snapshot.data[index]);
                               //print(Provider.of<IngredientData>(context, listen: false).recipeData['image']);
-                              Navigator.push(context, MaterialPageRoute(builder: (context){return RecipeDetails();}));
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return RecipeDetails(
+                                    recipe: snapshot.data[index]);
+                              }));
                             },
                           ),
                         ],
