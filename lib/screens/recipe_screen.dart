@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:RecipeFinder/constants.dart';
 import 'package:RecipeFinder/models/recipe.dart';
 import 'package:RecipeFinder/screens/recipe_details_screen.dart';
-import 'package:RecipeFinder/services/apiRequest.dart';
+import 'package:RecipeFinder/services/api_request.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:RecipeFinder/models/ingredientData.dart';
+import 'package:RecipeFinder/models/ingredient_data.dart';
 
 class RecipeScreen extends StatefulWidget {
   RecipeScreen({this.ingredients});
@@ -20,6 +20,7 @@ class RecipeScreen extends StatefulWidget {
 class _RecipeScreenState extends State<RecipeScreen> {
   RequestData data = RequestData();
   var _recipes = <Recipe>[];
+  var _ingredientProvider;
 
   StreamController streamController;
   Stream stream;
@@ -27,6 +28,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
   @override
   void initState() {
     super.initState();
+    _ingredientProvider = Provider.of<IngredientData>(context, listen: false);
     streamController = StreamController();
     stream = streamController.stream;
     updateUI();
@@ -34,8 +36,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
 
   void updateUI() async {
     streamController.add('Waiting');
-    _recipes = await data.getRecipes(
-        Provider.of<IngredientData>(context, listen: false).ingredientName);
+    _recipes = await data.getRecipes(_ingredientProvider.ingredientName);
     streamController.add(_recipes);
   }
 
@@ -123,10 +124,9 @@ class _RecipeScreenState extends State<RecipeScreen> {
                               size: 18.0,
                             ),
                             onPressed: () {
-                              Provider.of<IngredientData>(context,
-                                      listen: false)
+                              _ingredientProvider
                                   .provideRecipeData(snapshot.data[index]);
-                              //print(Provider.of<IngredientData>(context, listen: false).recipeData['image']);
+
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
                                 return RecipeDetails(

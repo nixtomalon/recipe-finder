@@ -22,22 +22,22 @@ class Recipe {
     title = json['title'];
     image = json['image'];
     likes = json['likes'];
+    missedIngredients = <MissedIngredients>[];
+    usedIngredients = <UsedIngredients>[];
+    unusedIngredients = <UnusedIngredients>[];
     if (json['missedIngredients'].length > 0) {
-      missedIngredients = <MissedIngredients>[];
       for (var data in json['missedIngredients']) {
         MissedIngredients missedIngredient = MissedIngredients.fromJson(data);
         missedIngredients.add(missedIngredient);
       }
     }
     if (json['usedIngredients'].length > 0) {
-      usedIngredients = <UsedIngredients>[];
       for (var data in json['usedIngredients']) {
         UsedIngredients usedIngredient = UsedIngredients.fromJson(data);
         usedIngredients.add(usedIngredient);
       }
     }
     if (json['unusedIngredients'].length > 0) {
-      unusedIngredients = <UnusedIngredients>[];
       for (var data in json['unusedIngredients']) {
         UnusedIngredients usedIngredient = UnusedIngredients.fromJson(data);
         unusedIngredients.add(usedIngredient);

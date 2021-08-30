@@ -1,9 +1,9 @@
 import 'package:RecipeFinder/constants.dart';
-import 'package:RecipeFinder/screens/recipes_screen.dart';
+import 'package:RecipeFinder/screens/recipe_screen.dart';
 import 'package:RecipeFinder/screens/search_ingredients.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:RecipeFinder/models/ingredientData.dart';
+import 'package:RecipeFinder/models/ingredient_data.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IngredientScreen extends StatefulWidget {
@@ -39,6 +39,14 @@ showAlertDialog(BuildContext context) {
 }
 
 class _IngredientScreenState extends State<IngredientScreen> {
+  var _ingredientProvider;
+
+  @override
+  void initState() {
+    _ingredientProvider = Provider.of<IngredientData>(context, listen: false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -211,9 +219,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  if (Provider.of<IngredientData>(context, listen: false)
-                          .ingredientCount <=
-                      0) {
+                  if (_ingredientProvider.ingredientCount <= 0) {
                     showAlertDialog(context);
                   } else {
                     Navigator.push(context,

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:RecipeFinder/constants.dart';
 import 'package:RecipeFinder/models/ingredient.dart';
-import 'package:RecipeFinder/models/ingredientData.dart';
-import 'package:RecipeFinder/services/apiRequest.dart';
+import 'package:RecipeFinder/models/ingredient_data.dart';
+import 'package:RecipeFinder/services/api_request.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +20,7 @@ class _SearchIngredientsState extends State<SearchIngredients> {
 
   var _ingredients = <Ingredient>[];
   var _controller = TextEditingController();
+  var _ingredientProvider;
 
   void display(String str) async {
     if (str.isNotEmpty) {
@@ -38,6 +39,7 @@ class _SearchIngredientsState extends State<SearchIngredients> {
     super.initState();
     streamController = StreamController();
     stream = streamController.stream;
+    _ingredientProvider = Provider.of<IngredientData>(context, listen: false);
   }
 
   @override
@@ -168,11 +170,9 @@ class _SearchIngredientsState extends State<SearchIngredients> {
                                             duration: Duration(seconds: 1),
                                             content: Text(
                                                 '${snapshot.data[index].name} added')));
-                                    Provider.of<IngredientData>(context,
-                                            listen: false)
-                                        .addIngredients(
-                                            snapshot.data[index].name,
-                                            'https://spoonacular.com/cdn/ingredients_100x100/$img');
+                                    _ingredientProvider.addIngredients(
+                                        snapshot.data[index].name,
+                                        'https://spoonacular.com/cdn/ingredients_100x100/$img');
                                     setState(
                                         () => snapshot.data.removeAt(index));
                                   },

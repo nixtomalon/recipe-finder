@@ -2,21 +2,19 @@ import 'package:flutter/foundation.dart';
 import 'package:RecipeFinder/models/ingredient.dart';
 
 class IngredientData extends ChangeNotifier {
-  List <Ingredient> ingredients = [];
+  List<Ingredient> ingredients = [];
 
-  int get ingredientCount {
-    return ingredients.length;
-  }
+  int get ingredientCount => ingredients.length;
 
   List get ingredientName {
-    List <String> ingredientName = [];
-    for(int i = 0; i < ingredients.length ; i++) {
+    List<String> ingredientName = [];
+    for (int i = 0; i < ingredients.length; i++) {
       ingredientName.add(ingredients[i].name);
     }
     return ingredientName;
   }
 
-  void addIngredients (String name, String image) {
+  void addIngredients(String name, String image) {
     ingredients.add(Ingredient(name: name, image: image));
     notifyListeners();
   }
@@ -33,8 +31,5 @@ class IngredientData extends ChangeNotifier {
     notifyListeners();
   }
 
-  int get recipeCount {
-    return recipeData.length;
-  }
-
+  int get recipeCount => recipeData.length;
 }

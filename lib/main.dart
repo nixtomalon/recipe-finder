@@ -1,4 +1,4 @@
-import 'package:RecipeFinder/models/ingredientData.dart';
+import 'package:RecipeFinder/models/ingredient_data.dart';
 import 'package:RecipeFinder/screens/ingredients_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

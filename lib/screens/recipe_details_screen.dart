@@ -116,11 +116,13 @@ class RecipeDetails extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                '${recipe.usedIngredients.length} used ingredients',
-                                style: kTextStyle.copyWith(
-                                    color: Colors.black, fontSize: 15.0),
-                              ),
+                              recipe.usedIngredients != null
+                                  ? Text(
+                                      '${recipe.usedIngredients.length} used ingredients',
+                                      style: kTextStyle.copyWith(
+                                          color: Colors.black, fontSize: 15.0),
+                                    )
+                                  : SizedBox(),
                               SizedBox(height: 10.0),
                               Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,11 +135,13 @@ class RecipeDetails extends StatelessWidget {
                                       )
                                       .toList()),
                               SizedBox(height: 25.0),
-                              Text(
-                                '${recipe.unusedIngredients.length} unused ingredients',
-                                style: kTextStyle.copyWith(
-                                    color: Colors.black, fontSize: 15.0),
-                              ),
+                              recipe.unusedIngredients != null
+                                  ? Text(
+                                      '${recipe.unusedIngredients.length} unused ingredients',
+                                      style: kTextStyle.copyWith(
+                                          color: Colors.black, fontSize: 15.0),
+                                    )
+                                  : SizedBox(),
                               SizedBox(height: 10.0),
                               Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,11 +154,13 @@ class RecipeDetails extends StatelessWidget {
                                       )
                                       .toList()),
                               SizedBox(height: 25.0),
-                              Text(
-                                '${recipe.missedIngredients.length} missed ingredients',
-                                style: kTextStyle.copyWith(
-                                    color: Colors.black, fontSize: 15.0),
-                              ),
+                              recipe.missedIngredients != null
+                                  ? Text(
+                                      '${recipe.missedIngredients.length} missed ingredients',
+                                      style: kTextStyle.copyWith(
+                                          color: Colors.black, fontSize: 15.0),
+                                    )
+                                  : SizedBox(),
                               SizedBox(height: 10.0),
                               Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
