@@ -23,3 +23,5 @@ const kTextStyle = TextStyle(
 
 const kPrimary = Color(0xffFAF8F4);
 const kSecondary = Color(0xff30768a);
+
+const kTextColor = Color(0xffc4c4c4);
