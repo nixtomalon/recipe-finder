@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       create: (context) => IngredientData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Whats on your fridge',
+        title: 'Whats on your store',
         home: IngredientScreen(),
         theme: ThemeData(
           fontFamily: 'Poppins-Regular',
