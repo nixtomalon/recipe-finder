@@ -73,7 +73,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                             color: kSecondary,
                           ),
                         ),
-                        Text('THIS IS GIT PRACTICE'),
+                        Text('THIS IS GIT SAMPLE'),
                         Text(
                           '${Provider.of<IngredientData>(context).ingredientCount} Ingredients',
                           style: kTextStyle.copyWith(
