@@ -3,7 +3,7 @@ import 'package:RecipeFinder/models/recipe.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const String apiKey = '4e7973fd01a340d8ae2416e97bdadc90';
+const String apiKey = '4e7973fd01a340d8ae2416e97bdadc96';
 const String getIngredientUrl =
     'https://api.spoonacular.com/food/ingredients/autocomplete';
 const String getRecipesUrl =
