@@ -74,6 +74,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                           ),
                         ),
                         Text('THIS IS GIT SAMPLE'),
+                        Text('git rebase'),
                         Text(
                           '${Provider.of<IngredientData>(context).ingredientCount} Ingredients',
                           style: kTextStyle.copyWith(
