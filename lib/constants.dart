@@ -27,3 +27,5 @@ const kSecondary = Color(0xff30768a);
 const kTextColor = Color(0xffc4c4c4);
 
 const String q = 'hakdog';
+
+const int i = 0;
