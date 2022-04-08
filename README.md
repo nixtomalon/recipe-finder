@@ -8,4 +8,4 @@ This application uses third party API(sponncular API) inorder to suggest the pos
 ### The User Interface
 
 
-![Github Feature](https://user-images.githubusercontent.com/55832656/162483836-fef92f1e-96da-47f1-a5ef-dea7f4c76af8.gif)
+![Github Feature (1)](https://user-images.githubusercontent.com/55832656/162485536-5e849597-91b0-42b1-93bb-4051d6367c0c.gif)
