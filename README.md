@@ -12,6 +12,7 @@ This application uses third party API(sponncular API) inorder to suggest the pos
 
 
 | Home Page | Products |
-| --------- |----------|
-|   test 1  | test 2   |
+| ---![Screen_Shot_2022-04-16_at_2 55 28_AM-removebg-preview](https://user-images.githubusercontent.com/55832656/163665629-c94943ee-53b6-489d-9e14-1b9b7ca3e7fa.png)
+------ |----------|
+|     | test 2   |
 |   test 1  | test 2   |
