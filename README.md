@@ -11,8 +11,7 @@ This application uses third party API(sponncular API) inorder to suggest the pos
 ![Github Feature (1)](https://user-images.githubusercontent.com/55832656/162485536-5e849597-91b0-42b1-93bb-4051d6367c0c.gif)
 
 
-| Home Page | Products |
-| ---![Screen_Shot_2022-04-16_at_2 55 28_AM-removebg-preview](https://user-images.githubusercontent.com/55832656/163665629-c94943ee-53b6-489d-9e14-1b9b7ca3e7fa.png)
------- |----------|
-|     | test 2   |
-|   test 1  | test 2   |
+|                 Home Page                       |               Products            |
+|-------------------------------------------------|-----------------------------------|
+|![sample](https://user-images.githubusercontent.com/55832656/163665724-def20888-e780-4f91-8aa5-a5de6f2ce79a.png)|![sample](https://user-images.githubusercontent.com/55832656/163665724-def20888-e780-4f91-8aa5-a5de6f2ce79a.png)|
+
