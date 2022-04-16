@@ -9,3 +9,9 @@ This application uses third party API(sponncular API) inorder to suggest the pos
 
 
 ![Github Feature (1)](https://user-images.githubusercontent.com/55832656/162485536-5e849597-91b0-42b1-93bb-4051d6367c0c.gif)
+
+
+| Home Page |       
+| --------- |
+|![Screen_Shot_2022-04-16_at_2 55 28_AM-removebg-preview](https://user-images.githubusercontent.com/55832656/163665496-8aef6e15-1cd4-44fe-9243-| |6f09f17371ea.png)
+|           |
