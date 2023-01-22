@@ -5,8 +5,10 @@ A simple mobile app built with flutter framework, this app will help user to fin
 
 This application uses third party API(sponncular API) inorder to suggest the possible recipes and ingredients to the user. To run the sponncular API you need an account on their website: https://spoonacular.com use the free one. Find your Application Key and change the already existing ones in the project with your new ones.
 
-### The User Interface
-
-
-![Github Feature (1)](https://user-images.githubusercontent.com/55832656/162485536-5e849597-91b0-42b1-93bb-4051d6367c0c.gif)
+<p float="left">
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="200" />
+</p>
 
