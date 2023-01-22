@@ -1,0 +1,204 @@
+import 'package:bxtra_rider/app/constants/app_colors.dart';
+import 'package:bxtra_rider/core/user/data/models/order_data.dart';
+import 'package:bxtra_rider/features/home/cubit/profile_cubit.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class HistoryScreen extends StatefulWidget {
+  static const String routeName = '/HistoryScreen';
+  static const String screenName = 'HistoryScreen';
+  static ModalRoute<void> route() =>
+      MaterialPageRoute<void>(builder: (_) => HistoryScreen(), settings: RouteSettings(name: routeName));
+  //HistoryScreen();
+
+  @override
+  _HistoryScreenState createState() => _HistoryScreenState();
+}
+
+class _HistoryScreenState extends State<HistoryScreen> {
+  var riderId = 'riderId';
+  List<OrderData> orders = <OrderData>[];
+
+  Future<List<OrderData>> getOrderHistory(int? id) async {
+    FirebaseFirestore db = FirebaseFirestore.instance;
+
+    try {
+      orders = await db
+          .collection('orderQueuing')
+          .where('rider.$riderId', isEqualTo: id)
+          .get()
+          .then((snap) => snap.docs.map((doc) => OrderData.fromMap(doc.data())).toList());
+    } catch (e) {
+      print(e);
+    }
+
+    return orders;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return BlocConsumer<ProfileCubit, ProfileState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        if (state is ProfileSuccess) {
+          return Scaffold(
+            appBar: AppBar(
+              iconTheme: IconThemeData(
+                color: Colors.black, //change your color here
+              ),
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back, color: Colors.black),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              backgroundColor: Colors.white,
+              title: Text(
+                'History',
+                style: TextStyle(color: AppColors.appBlack),
+              ),
+            ),
+            body: FutureBuilder(
+              future: getOrderHistory(state.riderProfileResponse.id),
+              builder: (context, snapshot) {
+                return ListView.separated(
+                  padding: EdgeInsets.zero,
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: AppColors.appGrey,
+                      thickness: 1.2,
+                    );
+                  },
+                  itemCount: orders.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: size.width,
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: Colors.greenAccent.withOpacity(.6),
+                                ),
+                                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                                child: Text(
+                                  'COMPLETED',
+                                  style: TextStyle(
+                                    color: Colors.green,
+                                    letterSpacing: .4,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                '12:21 PM | 24 September 2022',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  letterSpacing: .4,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    'ORDER NO.',
+                                    style: TextStyle(
+                                      color: AppColors.appNavBlue,
+                                      letterSpacing: .4,
+                                    ),
+                                  ),
+                                  Text(
+                                    ' #${orders[index].orderId}',
+                                    style: TextStyle(color: AppColors.appNavBlue, fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                '₱ ${double.parse(orders[index].orderTotal!.toStringAsFixed(2))}',
+                                style: TextStyle(color: AppColors.appNavBlue, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 12),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                  width: size.width / 5,
+                                  child: Text('Pick up \nAddress', style: TextStyle(color: Colors.grey, fontSize: 12))),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.location_pin,
+                                      size: 18,
+                                      color: Colors.blue,
+                                    ),
+                                    SizedBox(width: 6),
+                                    Flexible(
+                                        child: Text(orders[index].pickupAddress.toString(),
+                                            style: TextStyle(color: AppColors.appBlack, fontSize: 12))),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 6),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                  width: size.width / 5,
+                                  child:
+                                      Text('Drop-off \nAddress', style: TextStyle(color: Colors.grey, fontSize: 12))),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.location_pin,
+                                      size: 18,
+                                      color: Colors.blue,
+                                    ),
+                                    SizedBox(width: 6),
+                                    Flexible(
+                                        child: Text(orders[index].destinationAddress.toString(),
+                                            style: TextStyle(color: AppColors.appBlack, fontSize: 12))),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          );
+        }
+        return Scaffold(
+          body: Center(
+            child: Text('HISTORY'),
+          ),
+        );
+      },
+    );
+  }
+}

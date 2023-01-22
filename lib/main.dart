@@ -1,21 +1,33 @@
-import 'package:RecipeFinder/models/ingredient_data.dart';
-import 'package:RecipeFinder/screens/ingredients_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipe_finder/features/ingredients/presentations/ingredients_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:recipe_finder/features/recipes/cubit/recipe_cubit.dart';
+
+import 'features/ingredients/bloc/ingredient_bloc.dart';
+import 'features/ingredients/cubit/search_ingredient_cubit.dart';
+import 'repositories/api_repository.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => IngredientData(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => IngredientBloc()),
+        BlocProvider(
+            create: (context) =>
+                SearchIngredientCubit(api: FoodApiRepositoryImpl())),
+        BlocProvider(
+            create: (context) => RecipeCubit(api: FoodApiRepositoryImpl()))
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Whats on your store',
+        title: 'Whats on your basket',
         home: IngredientScreen(),
         theme: ThemeData(
           fontFamily: 'Poppins-Regular',
