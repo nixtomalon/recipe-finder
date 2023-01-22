@@ -15,3 +15,15 @@ This application uses third party API(sponncular API) inorder to suggest the pos
   <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.19.33.png" width="190" />
 </p>
 
+## Get Started
+Run:
+```shell
+git clone https://github.com/martinoyovo/flutter-airline-app.git
+flutter clean
+flutter packages get
+flutter run
+```
+
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
