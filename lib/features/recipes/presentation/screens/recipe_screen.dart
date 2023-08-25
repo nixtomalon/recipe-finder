@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_finder/features/recipes/presentation/screens/recipe_details_screen.dart';
 
 import '../../../../app/constants.dart';
-import '../../../ingredients/cubit/search_ingredient_cubit.dart';
 import '../../cubit/recipe_cubit.dart';
 
 class DishesScreen extends StatelessWidget {
