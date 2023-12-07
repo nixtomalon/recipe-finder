@@ -26,7 +26,7 @@ flutter run
 ```
 
 ## Usage
-• Upon launching the app, enter ingredients in the search bar.
+• Upon launching the app, enter ingredients in the search bar\n.
 • Tap the search button to find recipes containing those ingredients.
 • Select a recipe to view its details and cooking instructions.
 
