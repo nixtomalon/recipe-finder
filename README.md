@@ -1,4 +1,4 @@
-# Recipe Finder App
+# 🍜 Recipe Finder App 🍜
 This is a Recipe Finder app built with Flutter that allows users to search for recipes based on ingredients. Users can discover various recipes, view ingredients, and cooking instructions for their favorite dishes.
 <p float="left">
   <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.16.25.png" width="200" />
