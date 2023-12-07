@@ -8,9 +8,9 @@ This is a Recipe Finder app built with Flutter that allows users to search for r
 </p>
 
 ## Features
-- [Search by Ingredients: Enter the ingredients you have, and the app will find matching recipes.
-- [View Recipes: Browse through a wide variety of recipes with details like title, image, and ingredients.
-- [Cooking Instructions: Get step-by-step cooking instructions for each recipe.
+- Search by Ingredients: Enter the ingredients you have, and the app will find matching recipes.
+- View Recipes: Browse through a wide variety of recipes with details like title, image, and ingredients.
+- Cooking Instructions: Get step-by-step cooking instructions for each recipe.
 
 ## The API
 
@@ -26,9 +26,9 @@ flutter run
 ```
 
 ## Usage
-- [Upon launching the app, enter ingredients in the search bar.<br>
-- [Tap the search button to find recipes containing those ingredients.
-- [Select a recipe to view its details and cooking instructions.
+- Upon launching the app, enter ingredients in the search bar.<br>
+- Tap the search button to find recipes containing those ingredients.
+- Select a recipe to view its details and cooking instructions.
 
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
