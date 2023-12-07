@@ -17,7 +17,6 @@ class IngredientScreen extends StatefulWidget {
 }
 
 showAlertDialog(BuildContext context) {
-  // set up the button
   Widget okButton = TextButton(
     child: Text("OK"),
     onPressed: () {
@@ -25,7 +24,6 @@ showAlertDialog(BuildContext context) {
     },
   );
 
-  // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text("Information"),
     content: Text("You dont have ingredients yet."),
@@ -34,7 +32,6 @@ showAlertDialog(BuildContext context) {
     ],
   );
 
-  // show the dialog
   showDialog(
     context: context,
     builder: (BuildContext context) {
