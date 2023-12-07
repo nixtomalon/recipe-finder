@@ -1,12 +1,10 @@
 # Recipe-Finder
 A simple mobile app built with flutter framework, this app will help user to find or suggest recipes base on what ingredients they have.
 <p float="left">
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.16.25.png" width="182" />
-
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.48.png" width="182" />
-    <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="182" />
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.16.01.png" width="182" />
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.19.33.png" width="182" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.16.25.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.48.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.19.33.png" width="200" />
 </p>
 
 ## The API
