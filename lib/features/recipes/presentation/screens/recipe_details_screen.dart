@@ -27,7 +27,7 @@ class RecipeDetails extends StatelessWidget {
       child: Row(
         children: [
           CachedNetworkImage(
-            imageUrl: recipe.usedIngredients[index].image,
+            imageUrl: recipe.usedIngredients![index].image!,
             imageBuilder: (context, imageProvider) => Container(
               width: MediaQuery.of(context).size.width / 5.2,
               height: MediaQuery.of(context).size.width / 5.2,
@@ -50,7 +50,7 @@ class RecipeDetails extends StatelessWidget {
           Flexible(
             fit: FlexFit.tight,
             child: Text(
-              '• ${recipe.usedIngredients[index].orignal}',
+              '• ${recipe.usedIngredients![index].orignal}',
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -68,7 +68,7 @@ class RecipeDetails extends StatelessWidget {
       child: Row(
         children: [
           CachedNetworkImage(
-            imageUrl: recipe.unusedIngredients[index].image,
+            imageUrl: recipe.unusedIngredients![index].image!,
             imageBuilder: (context, imageProvider) => Container(
               width: MediaQuery.of(context).size.width / 5.2,
               height: MediaQuery.of(context).size.width / 5.2,
@@ -89,7 +89,7 @@ class RecipeDetails extends StatelessWidget {
           ),
           SizedBox(width: 16.0),
           Text(
-            '• ${recipe.unusedIngredients[index].orignal}',
+            '• ${recipe.unusedIngredients![index].orignal}',
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 15.0,
@@ -119,7 +119,7 @@ class RecipeDetails extends StatelessWidget {
       child: Row(
         children: [
           CachedNetworkImage(
-            imageUrl: recipe.missedIngredients[index].image,
+            imageUrl: recipe.missedIngredients![index].image!,
             imageBuilder: (context, imageProvider) => Container(
               width: MediaQuery.of(context).size.width / 5.2,
               height: MediaQuery.of(context).size.width / 5.2,
@@ -142,7 +142,7 @@ class RecipeDetails extends StatelessWidget {
           Flexible(
             fit: FlexFit.tight,
             child: Text(
-              '• ${recipe.missedIngredients[index].orignal}',
+              '• ${recipe.missedIngredients![index].orignal}',
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
@@ -221,7 +221,7 @@ class RecipeDetails extends StatelessWidget {
                 padding: EdgeInsets.all(12),
                 children: <Widget>[
                   Visibility(
-                    visible: recipe.usedIngredients.length > 0,
+                    visible: recipe.usedIngredients!.length > 0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -233,7 +233,7 @@ class RecipeDetails extends StatelessWidget {
                         SizedBox(height: 10.0),
                         Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: recipe.usedIngredients
+                            children: recipe.usedIngredients!
                                 .asMap()
                                 .entries
                                 .map<Widget>(
@@ -245,7 +245,7 @@ class RecipeDetails extends StatelessWidget {
                     ),
                   ),
                   Visibility(
-                    visible: recipe.unusedIngredients.length > 0,
+                    visible: recipe.unusedIngredients!.length > 0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -257,7 +257,7 @@ class RecipeDetails extends StatelessWidget {
                         SizedBox(height: 10.0),
                         Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: recipe.unusedIngredients
+                            children: recipe.unusedIngredients!
                                 .asMap()
                                 .entries
                                 .map<Widget>(
@@ -269,7 +269,7 @@ class RecipeDetails extends StatelessWidget {
                     ),
                   ),
                   Visibility(
-                    visible: recipe.missedIngredients.length > 0,
+                    visible: recipe.missedIngredients!.length > 0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -281,7 +281,7 @@ class RecipeDetails extends StatelessWidget {
                         SizedBox(height: 10.0),
                         Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: recipe.missedIngredients
+                            children: recipe.missedIngredients!
                                 .asMap()
                                 .entries
                                 .map<Widget>(

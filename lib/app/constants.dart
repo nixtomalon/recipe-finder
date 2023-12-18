@@ -29,4 +29,4 @@ const kSecondary = Color(0xff30768a);
 const kTextColor = Color(0xffc4c4c4);
 
 // your api key (example)
-const apiKey = "you api key";
+const apiKey = "4e7973fd01a340d8ae2416e97bdadc96";

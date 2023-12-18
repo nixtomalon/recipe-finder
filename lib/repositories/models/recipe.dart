@@ -3,9 +3,9 @@ class Recipe {
   String? title;
   String? image;
   int? likes;
-  var missedIngredients;
-  var usedIngredients;
-  var unusedIngredients;
+  List<MissedIngredients>? missedIngredients = [];
+  List<UsedIngredients>? usedIngredients = [];
+  List<UnusedIngredients>? unusedIngredients = [];
 
   Recipe({
     this.id,
@@ -22,29 +22,16 @@ class Recipe {
     title = json['title'];
     image = json['image'];
     likes = json['likes'];
-    missedIngredients = json['missedIngredients']
+
+    missedIngredients = (json['missedIngredients'] as List)
         .map((data) => MissedIngredients.fromJson(data))
         .toList();
-    usedIngredients = <UsedIngredients>[];
-    unusedIngredients = <UnusedIngredients>[];
-    // if (json['missedIngredients'].length > 0) {
-    //   for (var data in json['missedIngredients']) {
-
-    //     missedIngredients.add(MissedIngredients.fromJson(data));
-    //   }
-    // }
-    if (json['usedIngredients'].length > 0) {
-      for (var data in json['usedIngredients']) {
-        UsedIngredients usedIngredient = UsedIngredients.fromJson(data);
-        usedIngredients.add(usedIngredient);
-      }
-    }
-    if (json['unusedIngredients'].length > 0) {
-      for (var data in json['unusedIngredients']) {
-        UnusedIngredients usedIngredient = UnusedIngredients.fromJson(data);
-        unusedIngredients.add(usedIngredient);
-      }
-    }
+    usedIngredients = (json['usedIngredients'] as List)
+        .map((data) => UsedIngredients.fromJson(data))
+        .toList();
+    unusedIngredients = (json['unusedIngredients'] as List)
+        .map((data) => UnusedIngredients.fromJson(data))
+        .toList();
   }
 }
 
@@ -59,7 +46,7 @@ class MissedIngredients {
     id = json['id'];
     amount = json['amount'];
     unit = json['unit'];
-    orignal = json['original'];
+    orignal = json['name'];
     image = json['image'];
   }
 }
@@ -75,7 +62,7 @@ class UsedIngredients {
     id = json['id'];
     amount = json['amount'];
     unit = json['unit'];
-    orignal = json['original'];
+    orignal = json['name'];
     image = json['image'];
   }
 }
@@ -91,7 +78,7 @@ class UnusedIngredients {
     id = json['id'];
     amount = json['amount'];
     unit = json['unit'];
-    orignal = json['original'];
+    orignal = json['name'];
     image = json['image'];
   }
 }
