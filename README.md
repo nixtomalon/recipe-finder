@@ -1,10 +1,10 @@
 # 🍜 Recipe Finder App 🍜
 This is a Recipe Finder app built with Flutter that allows users to search for recipes based on ingredients. Users can discover various recipes, view ingredients, and cooking instructions for their favorite dishes.
 <p float="left">
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.16.25.png" width="200" />
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.48.png" width="200" />
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.15.15.png" width="200" />
-  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20Pro%20Max%20-%202023-01-22%20at%2019.19.33.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/1.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/2.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/3.png" width="200" />
+  <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/4.png" width="200" />
 </p>
 
 ## Features

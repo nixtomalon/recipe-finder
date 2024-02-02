@@ -1,13 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_finder/features/ingredients/presentations/ingredients_screen.dart';
+import 'package:recipe_finder/config/routes.dart';
+import 'package:recipe_finder/features/ingredients/presentations/bloc/search_ingredient_bloc.dart';
+import 'package:recipe_finder/features/ingredients/presentations/screens/pantry_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_finder/features/recipes/cubit/recipe_cubit.dart';
+import 'package:recipe_finder/features/recipes/presentation/cubit/recipe_cubit.dart';
+import 'package:recipe_finder/injectable_container.dart';
 
-import 'features/ingredients/bloc/ingredient_bloc.dart';
-import 'features/ingredients/cubit/search_ingredient_cubit.dart';
-import 'repositories/api_repository.dart';
-
-void main() {
+void main() async {
+  await initializeDependencies();
   runApp(MyApp());
 }
 
@@ -18,15 +18,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => IngredientBloc()),
-        BlocProvider(
-            create: (context) =>
-                SearchIngredientCubit(api: FoodApiRepositoryImpl())),
-        BlocProvider(
-            create: (context) => RecipeCubit(api: FoodApiRepositoryImpl()))
+        BlocProvider(create: (context) => RecipeCubit(sl())),
+        BlocProvider(create: (context) => SearchIngredientBloc(sl())),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.onGenerateRoutes,
         title: 'Whats on your basket',
         home: IngredientScreen(),
         theme: ThemeData(
