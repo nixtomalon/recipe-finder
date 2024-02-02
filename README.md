@@ -30,6 +30,20 @@ flutter run
 - Tap the search button to find ingredients.
 - Select a recipe to view its details.
 
+## Project Structure
+
+### Architecture
+
+This app follows the principles of [Clean Architecture]([link_to_clean_architecture_docs](https://github.com/mahdinazmi/Flutter-News-App-Clean-Architecture/tree/main)). The codebase is organized into distinct layers, promoting separation of concerns and maintainability.
+
+### State Management
+
+This app uses the BloC (Business Logic Component) pattern for state management. BloC helps to organize and manage the flow of data in a reactive and scalable way.
+
+### Unit Testing
+
+The codebase is thoroughly tested using mockito. To ensure the reliability and correctness of the application's functionalities. To run the tests, follow the instructions in the [Testing Section](https://docs.flutter.dev/cookbook/testing/unit/mocking) below.
+
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
