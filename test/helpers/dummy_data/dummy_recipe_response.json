@@ -1,0 +1,9 @@
+{
+    "id": 1,
+    "title": "apple jelly",
+    "image": "apple-jelly.jpg",
+    "likes": 1,
+    "missedIngredients": null,
+    "usedIngredients": null,
+    "unusedIngredients": null
+}
