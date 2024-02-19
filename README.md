@@ -4,11 +4,11 @@ This app is built with Flutter that allows users to suggest dishes based on ingr
 ## Screenshots
 |                                            Ingredient                                         |                                            Search                                             |
 | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/1.png"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/2.png"/> |
+| <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/1.png" width="200"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/2.png" width="200"/> |
 
 |                                            Dishes                                             |                                         Recipe Details                                        |
 | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/3.png"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/4.png"/> |
+| <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/3.png" width="200"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/4.png" width="200"/> |
 
 ## Features
 - **Search by Ingredients**: Enter the ingredients you have, and the app will find matching dishes/recipes.
