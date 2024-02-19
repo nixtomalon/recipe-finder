@@ -2,7 +2,7 @@
 This app is built with Flutter that allows users to suggest dishes based on ingredients. Users can discover various recipes, view ingredients, and their favorite dishes.
 
 ## Screenshots
-|                                          Ingredient                                           |                                          Search Page                                          |                                          Dishes Page                                          |                                       Recipe Details Page                                     | 
+|                                          Home Page                                            |                                          Search Page                                          |                                          Dishes Page                                          |                                       Recipe Details Page                                     | 
 | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
 | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/1.png"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/1.png"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/3.png"/> | <img src="https://github.com/nixtomalon/Recipe-Finder/blob/master/assets/screenshots/4.png"/> |
 
