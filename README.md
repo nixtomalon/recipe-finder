@@ -1,4 +1,4 @@
-## 🍜 Recipe Finder App 🍜
+# 🍜 Recipe Finder 🍜
 This app is built with Flutter that allows users to suggest dishes based on ingredients. Users can discover various recipes, view ingredients, and their favorite dishes.
 
 ## Screenshots
@@ -12,7 +12,7 @@ This app is built with Flutter that allows users to suggest dishes based on ingr
 
 ## The API
 
-This application uses third party API(sponncular API) inorder to suggest the possible recipes and ingredients. To use the sponncular API you need an account on their website: https://spoonacular.com use the free one. Find your Application Key and change the already existing ones in the project with your new ones.
+This application uses third party API(sponncular API) inorder to suggest the possible recipes and ingredients. To use the sponncular API you need an account on their website: ``https://spoonacular.com`` use the free one. Find your Application Key and change the already existing ones in the project with your new ones.
 
 ## Installation
 To run Recipe Finder app:
@@ -33,12 +33,12 @@ flutter run
 
 ### Architecture
 
-This app follows the principles of [Clean Architecture]([link_to_clean_architecture_docs](https://github.com/mahdinazmi/Flutter-News-App-Clean-Architecture/tree/main)). The codebase is organized into distinct layers, promoting separation of concerns and maintainability.
+This app follows the principles of ``Clean Architecture`` ([link_to_clean_architecture_docs](https://github.com/mahdinazmi/Flutter-News-App-Clean-Architecture/tree/main)). The codebase is organized into distinct layers, promoting separation of concerns and maintainability.
 
 ### State Management
 
-This app uses the BloC (Business Logic Component) pattern for state management. BloC helps to organize and manage the flow of data in a reactive and scalable way.
+This app uses the ``BloC (Business Logic Component)`` pattern for state management. BloC helps to organize and manage the flow of data in a reactive and scalable way.
 
 ### Unit Testing
 
-The codebase is thoroughly tested using mockito. To ensure the reliability and correctness of the application's functionalities. To run the tests, follow the instructions in the [Testing Section](https://docs.flutter.dev/cookbook/testing/unit/mocking) below.
+The codebase is thoroughly tested using ``mockito``. To ensure the reliability and correctness of the application's functionalities. To run the tests, follow the instructions in the [Testing Section](https://docs.flutter.dev/cookbook/testing/unit/mocking) below.
