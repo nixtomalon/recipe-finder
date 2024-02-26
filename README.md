@@ -17,7 +17,7 @@ This application uses third party API(sponncular API) inorder to suggest the pos
 ## Installation
 To run Recipe Finder app:
 ```shell
-git clone https://github.com/nixtomalon/Recipe-Finder.git
+git clone https://github.com/nixtomalon/recipe-finder.git
 flutter clean
 flutter pub get
 dart run build_runner build
@@ -33,7 +33,7 @@ flutter run
 
 ### Architecture
 
-This app follows the principles of ``Clean Architecture`` ([link_to_clean_architecture_docs](https://github.com/mahdinazmi/Flutter-News-App-Clean-Architecture/tree/main)). The codebase is organized into distinct layers, promoting separation of concerns and maintainability.
+This app follows the principles of ``Clean Architecture`` ([Example repository from mahdinazmi](https://github.com/mahdinazmi/Flutter-News-App-Clean-Architecture/tree/main)). The codebase is organized into distinct layers, promoting separation of concerns and maintainability.
 
 ### State Management
 
