@@ -41,4 +41,4 @@ This app uses the ``BloC (Business Logic Component)`` pattern for state manageme
 
 ### Unit Testing
 
-The codebase is thoroughly tested using ``mockito``. To ensure the reliability and correctness of the application's functionalities. To run the tests, follow the instructions in the [Testing Section](https://docs.flutter.dev/cookbook/testing/unit/mocking) below.
+The codebase is thoroughly tested using ``mockito``. To ensure the reliability and correctness of the application's functionalities. To run the tests, follow the instructions in the [Testing Section](https://docs.flutter.dev/cookbook/testing/unit/mocking) below
